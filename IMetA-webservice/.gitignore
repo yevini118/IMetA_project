@@ -37,4 +37,4 @@ out/
 .vscode/
 
 ### Login ###
-application.profiles.include=oauth
+application-oauth.properties
