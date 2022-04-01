@@ -11,18 +11,20 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @Entity
-public class InquiryBoard extends BaseTimeEntity {
+public class ContactBoard extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
     @NotNull
-    private User user;
+    private String name;
 
     @NotNull
     private String email;
+
+    @NotNull
+    private String phone;
 
     @NotNull
     private String title;
@@ -32,17 +34,22 @@ public class InquiryBoard extends BaseTimeEntity {
 
     private String image;
 
+    @NotNull
+    private String password;
+
     @Enumerated(EnumType.STRING)
     @NotNull
     private State state;
 
     @Builder
-    public InquiryBoard(User user, String email, String title, String content, String image, State state) {
-        this.user = user;
+    public ContactBoard(String name, String email, String phone, String title, String content, String image, String password, State state) {
+        this.name = name;
         this.email = email;
+        this.phone = phone;
         this.title = title;
         this.content = content;
         this.image = image;
+        this.password = password;
         this.state = state;
     }
 }
