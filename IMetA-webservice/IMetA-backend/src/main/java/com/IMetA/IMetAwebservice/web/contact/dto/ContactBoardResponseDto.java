@@ -30,4 +30,5 @@ public class ContactBoardResponseDto {
         this.state = entity.getState();
         this.createdDate = entity.getCreatedDate();
     }
+
 }

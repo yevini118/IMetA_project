@@ -52,4 +52,8 @@ public class ContactBoard extends BaseTimeEntity {
         this.password = password;
         this.state = state;
     }
+
+    public void update(State state) {
+        this.state = state;
+    }
 }

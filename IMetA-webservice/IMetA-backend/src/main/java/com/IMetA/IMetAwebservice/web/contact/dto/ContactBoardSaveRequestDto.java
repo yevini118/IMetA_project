@@ -2,6 +2,7 @@ package com.IMetA.IMetAwebservice.web.contact.dto;
 
 import com.IMetA.IMetAwebservice.domain.ContactBoard;
 import com.IMetA.IMetAwebservice.domain.enums.State;
+import com.IMetA.IMetAwebservice.web.s3.ImageLinkConverter;
 import com.sun.istack.NotNull;
 import lombok.Builder;
 import lombok.Getter;
@@ -13,7 +14,7 @@ import javax.validation.constraints.Pattern;
 
 @Getter
 @NoArgsConstructor
-public class ContactBoardSaveRequestDto {
+public class ContactBoardSaveRequestDto extends ImageLinkConverter {
 
     @NotBlank(message = "이름은 필수 입력 값입니다.")
     private String name;
@@ -52,6 +53,10 @@ public class ContactBoardSaveRequestDto {
         this.image = image;
         this.password = password;
         this.state = State.WAIT;
+    }
+
+    public void setImage(String[] imageList) {
+        this.image = imageListToString(imageList);
     }
 
     public ContactBoard toEntity() {
